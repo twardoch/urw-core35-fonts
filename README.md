@@ -1,18 +1,24 @@
-# URW Core 35 Fonts, Version 2.00
+# URW++ Core 35 Fonts, Version 2.00
+
+This repository contains the **URW++ Core 35 Fonts, Version 2.00**, released in 2016 and available under AGPL with exemption, LPPL and OFL. 
+
+## About the fonts
+
+* The URW++ Core 35 fonts, Version 2.0 are available in Type 1, OpenType-CFF and OpenType-TTF formats. 
+
+* Please consult the [Core 35 PDF document](./Core_35.pdf) for an overview of the fonts. 
+
+* The URW++ Core 35 fonts, Version 2.0 are distributed under the [GNU Affero General Public License, Version 3](./COPYING) with an [exemption](./LICENSE), [The LaTeX Project Public License, Version 1.3c](./LICENSE.LPPL) and the [SIL Open Font License, Version 1.1](./LICENSE.OFL). If you use the fonts, you may choose which license is most suitable for you. If you extend or modify the fonts, you may release your modified versions under any combination of the three licenses. Please consult the [LICENSE](./LICENSE.md) document for the text of the licenses. Please note that the three licenses apply only to the original Version 2.0 fonts, as released by URW++. 
+
+* If you need extended for modified versions of the fonts included in this directory, or professional support, please contact our [URW++ Font Service](https://www.urwpp.de/en/font-service/). 
+
+## History
 
 In **1999-2000**, **URW++ Design and Development GmbH** released the Type 1 implementations of the **Core 35** fonts under the GNU General Public License (GPL) and the Aladdin Ghostscript Free Public License (AFPL). In **2009**, URW++ additionally released the same fonts under the LaTeX Project Public License (LPPL).
 
 In **2016**, URW++ released a **major Version 2.0** upgrade to the Core 35 fonts. This version is an extensive reworking of the original Core 35 fonts, with improved font outlines, and greatly extended character sets, including Cyrillic and Greek. Also, some font names have been changed. Version 2.0 is released in Type 1, OpenType-CFF and OpenType-TTF formats. URW++ released the Version 2.0 of the fonts under the GNU Affero General Public License, Version 3 ([AGPL](./COPYING)) with an [exemption](./LICENSE). 
 
 In **2017**, URW++ additionally released the same Version 2.0 fonts under the LaTeX Project Public License ([LPPL](./LICENSE.LPPL)) Version 1.3c, and under the SIL OpenFont License ([OFL](./LICENSE.OFL)), Version 1.1, without a "Reserved Font Name" clause. 
-
-Please note that the three licenses apply only to the original Version 2.0 fonts, as released by URW++. 
-
-If you use the fonts, you may choose which license is most suitable for you. If you extend or modify the fonts, you may release your modified versions under any combination of the three licenses. 
-
-Please consult the [LICENSE](./LICENSE.md) document for the text of the licenses.
-
-If you need extended for modified versions of the fonts included in this directory, or professional support, please contact our [URW++ Font Service](https://www.urwpp.de/en/font-service/). 
 
 ## About URW++ Design and Development GmbH
 
