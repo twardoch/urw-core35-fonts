@@ -1,17 +1,34 @@
-# URW Core 35 Fonts, Version 2.00
+---
+this_file: README.md
+---
+# URW Core 35 Fonts
 
-The thirty-five typefaces that every PostScript printer has spoken since 1984 — Helvetica, Times, Courier, Palatino, Bookman, and the rest — redrawn by their original foundry and handed to you under a license you can actually use. No "evaluation" watermark. No per-seat fee. Just the fonts, in every format a modern toolchain asks for.
+This repository contains 35 URW font styles in 11 families.
+They provide alternatives to the standard PostScript fonts.
+The files include the URW++ corrections that Artifex distributed in 2017 and 2020.
 
-This is an archive of URW++'s Version 2.0 originals. Nothing here is a fork or a re-hint. These are the files as URW++ released them.
+All 140 font and metrics files match the selected
+[Artifex source revision](https://github.com/ArtifexSoftware/urw-base35-fonts/tree/3c0ba3b5687632dfc66526544a4e811fe0ec0cd9/fonts).
+The files have not been rebuilt here. Old versions are no longer included.
 
-## What's in the box
+## Font files
 
-Eleven families, 38 styles, in three formats each — Type 1 (`.t1` + `.afm`), OpenType-CFF (`.otf`), and OpenType-TrueType (`.ttf`). Every one parses cleanly (CI checks that on each push).
+Each style has these files:
 
-| URW family | Classic counterpart | Styles |
+| Files | Format |
+|---|---|
+| `.otf` | OpenType with CFF outlines |
+| `.ttf` | OpenType with TrueType outlines |
+| `.t1` and `.afm` | Type 1 font program and its font metrics |
+
+Select the format that your application supports.
+Use each Type 1 font with its matching AFM file.
+Python is necessary only for the checks below, not for font use.
+
+| URW family | PostScript counterpart | Styles |
 |---|---|---|
-| NimbusSans | Helvetica | Regular, Italic, Oblique, Bold, Bold Italic, Bold Oblique |
-| NimbusSansNarrow | Helvetica Narrow | Regular, Oblique, Bold, Bold Oblique, Bd Oblique |
+| NimbusSans | Helvetica | Regular, Italic, Bold, Bold Italic |
+| NimbusSansNarrow | Helvetica Narrow | Regular, Oblique, Bold, Bold Oblique |
 | NimbusRoman | Times | Regular, Italic, Bold, Bold Italic |
 | NimbusMonoPS | Courier | Regular, Italic, Bold, Bold Italic |
 | URWGothic | ITC Avant Garde Gothic | Book, Book Oblique, Demi, Demi Oblique |
@@ -22,46 +39,63 @@ Eleven families, 38 styles, in three formats each — Type 1 (`.t1` + `.afm`), O
 | D050000L | Dingbats | Regular |
 | Z003 | ITC Zapf Chancery | Medium Italic |
 
-The counterparts are the well-known metric-compatible equivalents; the names sit alongside them, they do not claim them.
-
-## The history, briefly
-
-In 1999–2000, URW++ Design and Development GmbH released the Type 1 implementations of the Core 35 fonts under the GNU General Public License (GPL) and the Aladdin Ghostscript Free Public License (AFPL). In 2009, URW++ additionally released the same fonts under the LaTeX Project Public License (LPPL).
-
-In 2016, URW++ shipped Version 2.0 — an extensive reworking with improved outlines and greatly extended character sets, now including Cyrillic and Greek. Some font names changed in the process. Version 2.0 arrived in Type 1, OpenType-CFF, and OpenType-TTF, released under the GNU Affero General Public License, Version 3 (AGPL) with an exemption.
-
-In 2017, URW++ additionally released the same Version 2.0 fonts under the LaTeX Project Public License (LPPL) Version 1.3c, and under the SIL Open Font License (OFL), Version 1.1, without a "Reserved Font Name" clause.
+The counterpart column identifies the corresponding PostScript design.
+It does not give the installed name of the URW font.
 
 ## License
 
-You pick. The Version 2.0 fonts carry a triple license, and any one of the three applies at your choice:
+Select one of these licenses:
 
-- **AGPL v3** ([COPYING](./COPYING)) — with a font-embedding exemption: you may embed these fonts in a PostScript or PDF document regardless of the license on the document itself. See [LICENSE.md](./LICENSE.md) for the exact wording.
-- **LPPL 1.3c** ([LICENSE.LPPL](./LICENSE.LPPL))
-- **OFL 1.1** ([LICENSE.OFL](./LICENSE.OFL)) — no Reserved Font Name.
+- [AGPL v3](COPYING), with the [font-embedding exemption](LICENSE.md#agpl-v3).
+- [LPPL 1.3c](LICENSE.LPPL).
+- [OFL 1.1](LICENSE.OFL), with no Reserved Font Names.
 
-Copyright 2013, 2014, 2015 by (URW)++ Design & Development.
+These are alternative licenses. You do not have to apply all three.
+See [LICENSE.md](LICENSE.md) for the license information.
+See [font sources and licensing](docs/provenance.md) for the URW++ authorization.
 
-The three licenses apply to the original Version 2.0 fonts as released by URW++. If you extend or modify the fonts, you may release your changes under any combination of the three. Full text lives in [LICENSE.md](./LICENSE.md).
+## Versions and old names
 
-If you need extended or modified versions, or professional support, contact the [URW++ Font Service](https://www.urwpp.de/en/font-service/).
+“Version 2.00” is the collection label for the 2016 release.
+This repository also includes the later corrections.
+The version inside an individual font can differ from the collection label.
+Repository tags such as `v1.0.1` identify repository revisions, not font versions.
 
-## Validating the archive
+If a document uses an old font name, select the replacement:
 
-The fonts are the product, so the one thing worth checking is that they still open:
+| Old name | Replacement |
+|---|---|
+| `NimbusSans-Oblique` | `NimbusSans-Italic` |
+| `NimbusSans-BoldOblique` | `NimbusSans-BoldItalic` |
+| `NimbusSansNarrow-BdOblique` | `NimbusSansNarrow-BoldOblique` |
+
+The [changelog](CHANGELOG.md) contains the full history and correction details.
+The [original specimen](Core_35.pdf) is a historical document, not a current file list.
+
+## Check the files
+
+Install [uv](https://docs.astral.sh/uv/) to run the checks with their Python dependency.
+Run the full test suite from the repository directory:
 
 ```bash
-python validate_fonts.py
+./test.sh
 ```
 
-It parses every `.otf` and `.ttf`, reads the name and glyph tables, and exits non-zero if any font is broken. GitHub Actions runs it on every push (see [`.github/workflows/validate.yml`](./.github/workflows/validate.yml)).
+To check font parsing only, run:
 
-## About URW++
+```bash
+uv run validate_fonts.py
+```
 
-URW++ has long developed and marketed font and software products, with particular strength in corporate type development and in the "global fonts" supplied to OEM customers. Its catalog reaches well beyond Latin — Cyrillic and Greek in the popular Latin designs, plus Japanese, Chinese, Korean, and Indic Devanagari families. URW++ is also the Dutch Type Library's exclusive distribution partner in Germany.
+To check the file hashes with `shasum`, run:
 
-## Links
+```bash
+shasum -a 256 -c docs/fonts.sha256
+```
 
-- [URW++ website](https://www.urwpp.de/en/)
-- [URW++ Font Service](https://www.urwpp.de/en/font-service/)
-- [URW++ film on type design & technology](https://youtu.be/Sadx3J7ybXw)
+The tests check all file hashes, the file list, font tables, glyph outlines,
+and the corrected Cyrillic small letter te.
+They also check failure handling for missing or damaged files.
+[GitHub Actions](.github/workflows/validate.yml) runs the suite on pushes and pull requests.
+These checks do not test font display in every application.
+See [DEPENDENCIES.md](DEPENDENCIES.md) for the required tools.
